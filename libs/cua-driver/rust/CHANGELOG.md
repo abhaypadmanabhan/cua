@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.37.1](https://github.com/trycua/cua/compare/cua-driver-rs-v0.37.0...cua-driver-rs-v0.37.1) (2026-10-20)
+
+
+### Bug Fixes
+
+* At the polling deadline, classify the same bound target only when the result would otherwise be zero delivery. Web targets return unverifiable without delivered_chars or retry fields. This applies to background key_events and foreground key_events_fg. Native zero delivery, completion, positive partial counts, and polling deadlines remain unchanged. Positive partial counts in self-clearing web fields are outside this fix. ([3133bbb](https://github.com/trycua/cua/commit/3133bbbff53a1eb07a919ff9973851eb44a3c129))
+* **cua-driver:** accept the GNOME helper only from the session's Shell ([da87d3d](https://github.com/trycua/cua/commit/da87d3d92f41b934103c82a312834c92b856ce4f))
+* **cua-driver:** avoid unsafe zero-delivery retry advice for macOS web typing ([3133bbb](https://github.com/trycua/cua/commit/3133bbbff53a1eb07a919ff9973851eb44a3c129)), closes [#5354](https://github.com/trycua/cua/issues/5354)
+* **cua-driver:** let launch_app take the .app path that list_apps reports ([8ae3222](https://github.com/trycua/cua/commit/8ae3222b5939e1eb5a30c3178008e67ff1979e60))
+* **cua-driver:** refuse unsafe GNOME 50+ helper startup ([53ffe13](https://github.com/trycua/cua/commit/53ffe137973edee3d4481d5fdba7469fc50c2717)), closes [#5416](https://github.com/trycua/cua/issues/5416)
+* **cua-driver:** restrict Windows launch candidates to the receipt process family ([0b235ad](https://github.com/trycua/cua/commit/0b235ad57c75ec9b8c7d56721d16c1d81b531855)), closes [#5450](https://github.com/trycua/cua/issues/5450)
+* **cua-driver:** scale Windows foreground scroll targets from the screenshot context ([e6de7c1](https://github.com/trycua/cua/commit/e6de7c1708afc1a3e1d3f549752bd40ec8f398d3))
+* **cua-driver:** stop macOS EINVAL flake in daemon client and settle capture/menu tests on conditions ([#5558](https://github.com/trycua/cua/issues/5558)) ([44f4795](https://github.com/trycua/cua/commit/44f47953a422d87593a7ba9a48020799f22e2548)), closes [#4357](https://github.com/trycua/cua/issues/4357)
+* extract snapshot selection into a host-testable module and select only the receipt root and transitive descendants, including renamed children. Preserve the public API, exited-root ordering, list_descendants behavior (including PID 0), explicit UWP host resolution, and original receipt PID with empty windows when no eligible fallback exists. Remove the unused version-prefix matcher. ([0b235ad](https://github.com/trycua/cua/commit/0b235ad57c75ec9b8c7d56721d16c1d81b531855))
+* Refuse GNOME 50 and newer before allocating resources, stop advertising GNOME 50 support, and document disabling existing helpers. Preserve GNOME 45–49 and API 10. This contains the risk without claiming to fix the native crash. ([53ffe13](https://github.com/trycua/cua/commit/53ffe137973edee3d4481d5fdba7469fc50c2717))
+
 ## [0.37.0](https://github.com/trycua/cua/compare/cua-driver-rs-v0.36.0...cua-driver-rs-v0.37.0) (2026-10-20)
 
 
